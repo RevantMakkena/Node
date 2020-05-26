@@ -1,0 +1,12 @@
+{
+  "prettier.jsxBracketSameLine": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 70,
+  "prettier.proseWrap": "never",
+  "editor.tabCompletion": "on",
+  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontWeight": "400", // Regular
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
+  "zenMode.centerLayout": false,
+  "editor.minimap.enabled": false
+}
