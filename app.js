@@ -1,8 +1,15 @@
-const Logger = require("./logger");
-const logger = new Logger();
+const http = require("http");
 
-logger.on("Message", (args) => {
-  console.log("Listener called" + JSON.stringify(args));
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello Remanthu");
+    res.end();
+  }
+
+  if (req.url === "/courses") {
+    res.write(JSON.stringify([1, 2, 3]));
+    res.end();
+  }
 });
 
-logger.log("msg");
+server.listen(4000);
