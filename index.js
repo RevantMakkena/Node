@@ -1,3 +1,4 @@
+const Joi = require("joi");
 const express = require("express");
 const app = express();
 app.use(express.json());
@@ -41,14 +42,60 @@ app.get("/api/courses/:id", (req, res) => {
 
 //#region  POST
 app.post("/api/courses", (req, res) => {
-  if (!req.body.name || req.body.name.length < 2)
-    return res.status(400).send("Invalid course name");
+  const schema = {
+    name: Joi.string().min(2).required(),
+  };
+
+  const result = Joi.validate(req.body, schema);
+
+  if (result.error)
+    return res.status(400).send(result.error.details[0].message);
+
   const course = {
     id: courses.length + 1,
     name: req.body.name,
   };
   courses.push(course);
   res.status(200).send(course);
+});
+//#endregion
+
+//#region PUT
+app.put("/api/courses/:id", (req, res) => {
+  const schema = {
+    name: Joi.string().min(2).required(),
+  };
+  const result = Joi.validate(req.body, schema);
+  if (result.error)
+    return res.status(400).send(result.error.details[0].message);
+
+  const isCourseFound = courses.find(
+    (x) => x.id === parseInt(req.params.id)
+  );
+  if (!isCourseFound) return res.status(404).send("Course not found");
+
+  isCourseFound.name = req.body.name;
+  return res.status(200).send(isCourseFound);
+});
+//#endregion
+
+//#region DELETE
+app.delete("/api/courses/:id", (req, res) => {
+  const schema = {
+    id: Joi.number().required(),
+  };
+
+  const result = Joi.validate(req.params, schema);
+  if (result.error) return res.status(404).send("Id is required");
+
+  const isCourseFound = courses.find(
+    (x) => x.id === parseInt(req.params.id)
+  );
+  if (!isCourseFound)
+    return res.status(404).send("can't find course");
+
+  courses.splice(isCourseFound.id - 1, 1);
+  return res.status(200).send("course deleted");
 });
 //#endregion
 
