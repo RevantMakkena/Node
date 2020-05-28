@@ -1,7 +1,16 @@
+const morgan = require("morgan");
 const Joi = require("joi");
 const express = require("express");
 const app = express();
+const logger = require("./logger");
+
+console.log(`Current environment is ${process.env.NODE_ENV}`);
+console.log(app.get("env"));
+
 app.use(express.json());
+app.use(logger);
+if (app.get("env") === "development") app.use(morgan("tiny")); //third party middleware to log requests
+
 const port = process.env.PORT || 7000;
 
 const courses = [
