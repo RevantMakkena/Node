@@ -1,0 +1,27 @@
+GET http://localhost:4000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUk1ha2tlbmEiLCJpYXQiOjE1OTI3MDU2MTMsImV4cCI6MTU5MjcwNTYyOH0.kFuTtpUO79WRThNnnG_m69YkVNHFtwvT7w2w3eipdgs
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"RMakkena"
+}
+
+###
+POST http://localhost:3000/token
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUk1ha2tlbmEiLCJpYXQiOjE1OTI3MDU2MTN9._gLlHeNvnXtThJx937e1G9rAea877bM8ASEcCptbfB4"
+}
+
+
+###
+DELETE http://localhost:3000/logout
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUk1ha2tlbmEiLCJpYXQiOjE1OTI3MDYxMTJ9.Sru08GfVcig2ac43RhUAkdOCYjnXu0UW_qh0TKVCVYY"
+}
