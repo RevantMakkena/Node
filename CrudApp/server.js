@@ -5,35 +5,35 @@ const cors = require("cors");
 app.use(cors());
 app.options("*", cors());
 app.use(bodyParser.json());
-const books = require("./data.json");
+const users = require("./data.json");
 
-app.get("/api/books", (req, res) => {
-  res.json(books);
+app.get("/api/users", (req, res) => {
+  res.json(users.filter((user) => user.Id <= 10));
 });
 
-app.get("/api/books/:id", (req, res) => {
+app.get("/api/users/:id", (req, res) => {
   console.log(req.params);
-  const book = books.find(
-    (book) => book.id === parseInt(req.params.id)
+  const user = users.find(
+    (_user) => _user.Id === parseInt(req.params.id)
   );
-  if (!book) return res.sendStatus(404).send("Book not found");
+  if (!user) return res.sendStatus(404).send("User not found");
 
-  res.json(book);
+  res.json(user);
 });
 
-app.post("/api/books", (req, res) => {
+app.post("/api/users", (req, res) => {
   if (req.body === undefined)
     return res.sendStatus(204).send("Couldn't find the Book Obect");
 
-  const isBookPresent = books.find(
-    (book) => book.id === parseInt(req.body.id)
+  const isUserPresent = users.find(
+    (_user) => _user.Id === parseInt(req.body.id)
   );
-  if (isBookPresent)
+  if (isUserPresent)
     return res.sendStatus(302).send("Data is already present");
 
-  const newBook = {id: books.length + 1, name: req.body.name};
-  books.push(newBook);
+  // const newUser = {id: users.length + 1, name: req.body.name};
+  // books.push(newBook);
   return res.sendStatus(200);
 });
 
-app.listen(3003, () => console.log("Listening on 3003"));
+app.listen(3033, () => console.log("Listening on 3033"));
