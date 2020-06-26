@@ -1,13 +1,16 @@
-GET  http://localhost:3033/api/books
+GET  http://localhost:3033/api/users
 
 ###
-GET  http://localhost:3003/api/books/10
+GET  http://localhost:3033/api/users/10
 
 ###
-POST  http://localhost:3003/api/books
+PUT   http://localhost:3033/api/users
 Content-Type: application/json
 
 {
     "id":3,
-    "name":"revanth"
+    "name":"revanth",
 }
+
+###
+DELETE  http://localhost:3033/api/users/2

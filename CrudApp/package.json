@@ -6,8 +6,7 @@
   "scripts": {
     "prestart": "node start.js",
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gitPush": "git add ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
