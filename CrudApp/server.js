@@ -39,17 +39,13 @@ app.post("/api/users", (req, res) => {
     (_user) => _user.Id === parseInt(req.body.id)
   );
   if (isUserPresent) return res.sendStatus(302);
-
-  // const newUser = {id: users.length + 1, name: req.body.name};
-  // books.push(newBook);
-  // return res.sendStatus(200);
 });
 
 app.put("/api/users", (req, res) => {
   let targetUser = users.find(
     (_user) => _user.Id === parseInt(req.body.user.Id)
   );
-  console.log(targetUser);
+
   if (!targetUser) return res.sendStatus(404);
 
   targetUser.First_Name = req.body.user.First_Name;
@@ -58,7 +54,7 @@ app.put("/api/users", (req, res) => {
   targetUser.PhoneNumber = req.body.user.PhoneNumber;
   targetUser.City = req.body.user.City;
   targetUser.State = req.body.user.State;
-  users[targetUser.Id] = targetUser;
+
   return res.sendStatus(200);
 });
 
