@@ -1,3 +1,4 @@
 # To create a tsconfig file
 
-npm run -- --init
+1. npm run -- --init
+2. npm i -D cross-env
