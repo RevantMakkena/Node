@@ -10,6 +10,6 @@ There are 3 ways of handling Async Code
 
 const storeData = (data, path) => { try { fs.writeFileSync(path, JSON.stringify(data)) } catch (err) { console.error(err) } }
 
-### To debug node apps
+## To debug node apps
 
 node --inspect-brk <File Name> chrome://inspect to debug in chrome debug tools
