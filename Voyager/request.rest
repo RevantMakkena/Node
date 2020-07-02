@@ -21,3 +21,9 @@ POST  http://localhost:4444/logout
 Content-Type: application/json
 email:rk@gmail.com
 token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+
+###
+GET http://localhost:4444/api/users
+Content-Type: application/json
+email:rk@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec

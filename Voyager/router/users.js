@@ -1,19 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("../model/humanDb");
+const {CheckTokenExistsMiddleware} = require("../auth/token");
 
-router.get("/api/users", (req, res) => {
-  //Get users with infinite scrolling
+router.get("/", CheckTokenExistsMiddleware, async (req, res) => {
+  console.log(mongoose.Collection());
 });
 
-router.get("/api/users/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   //get specific ID
 });
 
-router.post("/api/users", (req, res) => {
+router.post("/", (req, res) => {
   //adding new user
 });
 
-router.delete("/api/users/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   //delete user
 });
 
