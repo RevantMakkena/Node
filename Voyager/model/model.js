@@ -22,7 +22,7 @@ const RegistrationSchema = new mongoose.Schema({
 });
 
 const JsonTokenSchema = new mongoose.Schema({
-  name: {
+  email: {
     type: String,
     required: true,
   },

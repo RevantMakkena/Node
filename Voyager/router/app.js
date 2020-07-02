@@ -7,6 +7,7 @@ const {
   CheckPassword,
   RegisteredUser,
 } = require("../auth/auth");
+const {CreateToken, CheckTokenExists} = require("../auth/token");
 
 router.get("/", (req, res) => {
   res.send("App Entry Page");
@@ -38,8 +39,20 @@ router.post("/login", async (req, res) => {
       _user.password
     );
 
+    //JWT Token
     if (passwordMatched) {
-      //JWT Token
+      const isTokenExists = await CheckTokenExists(
+        email,
+        _user.password
+      );
+      if (isTokenExists) {
+        res.status(200).send(email, isTokenExists);
+      } else {
+        const token = await CreateToken(email);
+        console.log(token);
+        if (token) res.status(200).send({email, token});
+        else res.status(403).send("Internal server error");
+      }
     } else {
       res.status(403).send("wrong password");
     }
