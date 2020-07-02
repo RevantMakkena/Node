@@ -10,6 +10,10 @@ app.get("/users", (req, res) => {
 
 app.post("/users", async (req, res) => {
   try {
+    const salt = await bcrypt.genSalt(12);
+    console.log("Salt is " + salt);
+    const hash = await bcrypt.hash(req.body.password, salt);
+    console.log("Hash is " + hash);
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = {name: req.body.name, password: hashedPassword};
     users.push(user);
@@ -25,6 +29,11 @@ app.post("/users/login", async (req, res) => {
     return res.statusCode(400).send("cannot find user");
 
   try {
+    const compare = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    console.log("compare " + compare);
     if (await bcrypt.compare(user.password, req.body.password))
       res.send("success");
     else res.send("Not allowed");

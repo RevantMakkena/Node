@@ -9,6 +9,7 @@ app.use(express.json());
 let refreshTokens = [];
 app.post("/token", (req, res) => {
   const refreshToken = req.body.token;
+  console.log(refreshToken);
   if (refreshToken == null) return res.sendStatus(401);
   if (!refreshTokens.includes(refreshToken))
     return res.sendStatus(403);
@@ -19,6 +20,7 @@ app.post("/token", (req, res) => {
     (err, user) => {
       if (err) return res.sendStatus(403);
       const accessToken = generateAccessToken({name: user.name});
+      return res.json(accessToken);
     }
   );
 });
@@ -43,7 +45,7 @@ app.delete("/logout", (req, res) => {
 
 function generateAccessToken(user) {
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "15s",
+    expiresIn: "10h",
   });
 }
 

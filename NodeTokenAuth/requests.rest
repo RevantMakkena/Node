@@ -14,7 +14,7 @@ POST http://localhost:3000/token
 Content-Type: application/json
 
 {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUk1ha2tlbmEiLCJpYXQiOjE1OTI3MDU2MTN9._gLlHeNvnXtThJx937e1G9rAea877bM8ASEcCptbfB4"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUk1ha2tlbmEiLCJpYXQiOjE1OTM1NzAyNTN9.SiDW4QYKcBrydkPWxHC2g0ETKojBigIJinTMVh_9BPQ"
 }
 
 

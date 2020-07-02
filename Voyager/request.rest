@@ -1,0 +1,18 @@
+POST  http://localhost:4444/register
+Content-Type: application/json
+
+{
+    "name" : "Revanth",
+     "email" : "rk@gmail.com",
+      "password" : "1234"
+}
+
+###
+POST  http://localhost:4444/login
+Content-Type: application/json
+
+{
+     "email" : "rk2@gmail.com",
+      "password" : "1234"
+}
+
