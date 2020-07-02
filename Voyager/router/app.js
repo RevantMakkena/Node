@@ -7,7 +7,11 @@ const {
   CheckPassword,
   RegisteredUser,
 } = require("../auth/auth");
-const {CreateToken, CheckTokenExists} = require("../auth/token");
+const {
+  CreateToken,
+  CheckTokenExists,
+  DeleteToken,
+} = require("../auth/token");
 
 router.get("/", (req, res) => {
   res.send("App Entry Page");
@@ -49,7 +53,7 @@ router.post("/login", async (req, res) => {
         res.status(200).send(email, isTokenExists);
       } else {
         const token = await CreateToken(email);
-        console.log(token);
+
         if (token) res.status(200).send({email, token});
         else res.status(403).send("Internal server error");
       }
@@ -61,4 +65,11 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", async (req, res) => {
+  const {email, token} = req.headers;
+  //Delete token from DB
+  if (await DeleteToken(email, token))
+    res.status(200).send("Success");
+  else res.status(403).send("error");
+});
 module.exports = router;

@@ -29,4 +29,10 @@ const CheckTokenExists = async (email, token) => {
   } else return null;
 };
 
-module.exports = {CreateToken, CheckTokenExists};
+const DeleteToken = async (email) => {
+  const tokenInDb = await Token.findOneAndDelete({email: email});
+  if (tokenInDb) return true;
+  else return false;
+};
+
+module.exports = {CreateToken, CheckTokenExists, DeleteToken};
