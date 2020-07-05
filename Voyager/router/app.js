@@ -12,7 +12,6 @@ const {
   CheckTokenExists,
   DeleteToken,
 } = require("../auth/token");
-const mongoose = require("../model/loginDb");
 
 router.get("/", (req, res) => {
   res.send("App Entry Page");

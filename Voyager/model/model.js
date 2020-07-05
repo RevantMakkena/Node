@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const schema = mongoose.Schema;
 
 const RegistrationSchema = new mongoose.Schema({
   name: {
