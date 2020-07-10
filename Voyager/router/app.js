@@ -6,12 +6,12 @@ const {
   RegisterUser,
   CheckPassword,
   RegisteredUser,
-} = require("../auth/auth");
+} = require("../auth/Auth");
 const {
   CreateToken,
   CheckTokenExists,
   DeleteToken,
-} = require("../auth/token");
+} = require("../auth/Token");
 
 router.get("/", (req, res) => {
   res.send("App Entry Page");

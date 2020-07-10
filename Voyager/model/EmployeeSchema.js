@@ -34,16 +34,27 @@ const employeeSchema = new mongoose.Schema({
   Company: {
     type: "String",
   },
-  Movies: {
-    type: ["String"],
-  },
-  Vehicles: {
-    type: ["Mixed"],
-  },
-  Credit: {
-    type: ["Mixed"],
-  },
+  Movies: [
+    {
+      type: "String",
+    },
+  ],
+  Vehicles: [
+    {
+      Make: "String",
+      Model: "String",
+      Year: "Number",
+      Vin: "String",
+    },
+  ],
+  Credit: [
+    {
+      CreditCardNumber: "String",
+      CardType: "String",
+      CurrencyType: "String",
+    },
+  ],
 });
 
-const Employees = mongoose.model("Employees", employeeSchema);
-module.exports = {Employees};
+const Employee = mongoose.model("Employee", employeeSchema);
+module.exports = {Employee};

@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {CheckTokenExistsMiddleware} = require("../auth/token");
+const {CheckTokenExistsMiddleware} = require("../auth/Token");
 const {
   getUsersInRange,
   getUserById,
   deleteUserById,
   updateUser,
-} = require("../auth/userdb.js");
-const {updateEmployee} = require("../auth/employeedb");
+} = require("../auth/UserCrudOperations");
+const {updateEmployee} = require("../auth/employeeCrudOperations");
+
 router.get(
   "/:startIndex/:endIndex",
   CheckTokenExistsMiddleware,

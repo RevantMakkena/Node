@@ -1,4 +1,4 @@
-const {Users} = require("../model/human");
+const {Users} = require("../model/UserSchema");
 
 const getUsersInRange = async (startIndex, endIndex) => {
   const res = await Users.find({})

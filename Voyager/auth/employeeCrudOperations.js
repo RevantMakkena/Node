@@ -1,4 +1,5 @@
-const {Employees} = require("../model/employee");
+const {Employee} = require("../model/EmployeeSchema");
+const {SignUp} = require("../model/model");
 
 const updateEmployee = async () => {
   //   const x = await Employee.findOneAndUpdate(
@@ -7,7 +8,10 @@ const updateEmployee = async () => {
   //     {new: true}
   //   );
 
-  const x = await Employees.findOne({Id: 1});
+  const x = await SignUp.findOneAndUpdate(
+    {name: "Revanth"},
+    {email: "rk2@gmail.com"}
+  );
   console.log(x);
 };
 
