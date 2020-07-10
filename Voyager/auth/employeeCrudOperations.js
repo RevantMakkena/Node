@@ -15,15 +15,26 @@ const ShowAllCollections = () => {
     });
 };
 
+const GetEmployeesInRange = async (startIndex, endIndex) => {
+  const res = await Employees.find({})
+    .where("Id")
+    .gt(startIndex - 1)
+    .lt(endIndex + 1)
+    .sort("Id");
+
+  if (res) return res;
+  else return null;
+};
+
 const GetEmployee = async (id) => {
   const employee = await Employees.findOne({id: id});
   if (employee) return employee;
-  else return "error";
+  else return null;
 };
 
 const AddEmployee = async (data) => {
   const newEmployee = new Employees({
-    First_Name: "",
+    First_Name: "Revanth",
     Last_Name: "Enriquez",
     "Phone Number": "765-591-1817",
     Email: "oenriquez0@home.pl",
@@ -116,6 +127,7 @@ const DeleteEmployee = async (id) => {
 };
 
 module.exports = {
+  GetEmployeesInRange,
   GetEmployee,
   AddEmployee,
   UpdateEmployee,
