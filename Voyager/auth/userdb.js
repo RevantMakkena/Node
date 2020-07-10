@@ -24,11 +24,36 @@ const deleteUserById = async (id) => {
 };
 
 const updateUser = async (user) => {
+  console.log(user.Id);
   const id = parseInt(user.Id);
+  console.log(Users.schema);
+
+  usr1 = {
+    First_Name: "RK",
+    Last_Name: "Mak",
+    Email: "rk@gmail.com",
+    PhoneNumber: "3456789678",
+  };
+
   // prettier-ignore
-  const y = await Users.update({Id: id}, {"Gender": "M", "Email":"RK"});
-  console.log(y);
+  await Users.findByIdAndUpdate(
+    "5ed17316e4c144cbe74c8086",
+    {$set: usr1},
+    function (err, product) {
+      
+    }
+  );
 };
+
+const addUser = async (user) => {
+  //Create an instance
+  // var book1 = new Book({
+  //   name: "Introduction to Mongoose",
+  //   price: 10,
+  //   quantity: 25,
+  // });
+};
+
 module.exports = {
   getUsersInRange,
   getUserById,

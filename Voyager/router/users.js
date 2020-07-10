@@ -7,7 +7,7 @@ const {
   deleteUserById,
   updateUser,
 } = require("../auth/userdb.js");
-
+const {updateEmployee} = require("../auth/employeedb");
 router.get(
   "/:startIndex/:endIndex",
   CheckTokenExistsMiddleware,
@@ -33,10 +33,10 @@ router.get("/:id", CheckTokenExistsMiddleware, async (req, res) => {
   else res.status(404).send("No records found");
 });
 
-router.post("/", CheckTokenExistsMiddleware, async (req, res) => {
+router.post("/", async (req, res) => {
   //adding new user
-
-  await updateUser(req.body);
+  const y = await updateEmployee();
+  // const x = await updateUser(req.body);
   res.status(200);
 });
 

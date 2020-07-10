@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const {LoginUri, HumansUri, Uri} = require("../config/keys");
+const {LoginUri, HumansUri, Uri} = require("../Voyager/config/keys");
 mongoose
-  .connect(HumansUri, {
+  .connect(LoginUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
