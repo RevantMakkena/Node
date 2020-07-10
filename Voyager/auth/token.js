@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const {Token} = require("../model/model");
+const {Token} = require("../model/CoreSchema");
 const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,

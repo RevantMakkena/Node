@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "name" : "Revanth",
-     "email" : "rk@gmail.com",
+     "email" : "rk2@gmail.com",
       "password" : "1234"
 }
 
@@ -19,26 +19,26 @@ Content-Type: application/json
 ### 
 POST  http://localhost:4444/logout
 Content-Type: application/json
-email:rk@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+email:rk2@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
 
 ###
 GET http://localhost:4444/api/users/20/22
 Content-Type: application/json
-email:rk@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+email:rk2@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
 
 ###
-GET http://localhost:4444/api/users/20
+GET http://localhost:4444/api/users/22
 Content-Type: application/json
-email:rk@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+email:rk2@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
 
 ###
 POST  http://localhost:4444/api/users
 Content-Type: application/json
-email:rk@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+email:rk2@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
 
 {
       "Id":17,
@@ -51,5 +51,5 @@ token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2Mi
 ###
 Delete http://localhost:4444/api/users/21
 Content-Type: application/json
-email:rk@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmtAZ21haWwuY29t.O4KxaBeMiL7aUrWZ3Z_3VBoUu78VWLgjg2MiZxCaiec
+email:rk2@gmail.com
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU

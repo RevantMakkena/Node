@@ -1,4 +1,4 @@
-const {SignUp} = require("../model/model");
+const {SignUp} = require("../model/CoreSchema");
 const bcrypt = require("bcrypt");
 
 const CreateHashedPassword = async (password) => {

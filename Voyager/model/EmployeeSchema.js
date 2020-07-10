@@ -1,60 +1,60 @@
 const mongoose = require("mongoose");
 
 const employeeSchema = new mongoose.Schema({
-  Id: {
-    type: "Number",
+  id: {
+    type: Number,
   },
-  First_Name: {
-    type: "String",
+  FirstName: {
+    type: String,
   },
-  Last_Name: {
-    type: "String",
+  LastName: {
+    type: String,
   },
-  "Phone Number": {
-    type: "String",
+  PhoneNumber: {
+    type: String,
   },
   Email: {
-    type: "String",
+    type: String,
   },
   Gender: {
-    type: "String",
+    type: String,
   },
   Race: {
-    type: "String",
+    type: String,
   },
   University: {
-    type: "String",
+    type: String,
   },
   City: {
-    type: "String",
+    type: String,
   },
   State: {
-    type: "String",
+    type: String,
   },
   Company: {
-    type: "String",
+    type: String,
   },
   Movies: [
     {
-      type: "String",
+      type: String,
     },
   ],
   Vehicles: [
     {
-      Make: "String",
-      Model: "String",
-      Year: "Number",
-      Vin: "String",
+      Make: String,
+      Model: String,
+      Year: Number,
+      Vin: String,
     },
   ],
   Credit: [
     {
-      CreditCardNumber: "String",
-      CardType: "String",
-      CurrencyType: "String",
+      CreditCardNumber: String,
+      CardType: String,
+      CurrencyType: String,
     },
   ],
 });
 
-const Employee = mongoose.model("Employee", employeeSchema);
-module.exports = {Employee};
+const Employees = mongoose.model("Employees", employeeSchema);
+module.exports = {Employees};

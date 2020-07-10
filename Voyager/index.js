@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 //Routes
-app.use("/", require("./router/app"));
-app.use("/api/users", require("./router/users"));
+app.use("/", require("./router/AppApi"));
+app.use("/api/users", require("./router/EmployeeApi"));
 
 app.listen(port, console.log(`Server running on ${port}`));
