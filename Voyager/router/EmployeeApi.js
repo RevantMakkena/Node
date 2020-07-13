@@ -7,6 +7,7 @@ const {
   AddEmployee,
   UpdateEmployee,
   DeleteEmployee,
+  GetAllEmployees,
 } = require("../auth/employeeCrudOperations");
 const e = require("express");
 
@@ -16,7 +17,7 @@ router.get(
   async (req, res) => {
     const {startIndex, endIndex} = req.params;
 
-    const records = await getUsersInRange(
+    const records = await GetEmployeesInRange(
       parseInt(startIndex),
       parseInt(endIndex)
     );
@@ -25,6 +26,13 @@ router.get(
     else res.status(404).send("No records found");
   }
 );
+
+router.get("/", CheckTokenExistsMiddleware, async (req, res) => {
+  const response = await GetAllEmployees();
+
+  if (response) res.status(200).send(response);
+  else res.status(404);
+});
 
 router.get("/:id", CheckTokenExistsMiddleware, async (req, res) => {
   //get specific ID

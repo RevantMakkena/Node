@@ -1,5 +1,10 @@
 const {SignUp} = require("../model/CoreSchema");
 const bcrypt = require("bcrypt");
+const {
+  CheckTokenExists,
+  CreateToken,
+  CheckTokenInDb,
+} = require("../auth/Token");
 
 const CreateHashedPassword = async (password) => {
   const generatedSalt = await bcrypt.genSalt(12);
@@ -27,10 +32,48 @@ const RegisteredUser = async (email) => {
   return await SignUp.findOne({email: email});
 };
 
+const CheckAndCreateToken = async (email, password) => {
+  let response = {};
+  let status = {response, userExists: false, passwordMatch: false};
+  const doesUserExists = await RegisteredUser(email);
+
+  if (doesUserExists) {
+    status.userExists = true;
+    const passwordMatch = await CheckPassword(
+      password,
+      doesUserExists.password
+    );
+
+    if (passwordMatch) {
+      status.passwordMatch = true;
+      
+      const getToken = await CheckTokenInDb(email);
+      
+      if (!getToken) {
+        const token = await CreateToken(email);
+        if (token) {
+          status.response = {
+            user: {name: doesUserExists.name},
+            token: token,
+          };
+        }
+      } else {
+        status.response = {
+          user: {name: doesUserExists.name},
+          token: getToken,
+        };
+      }
+    }
+  }
+
+  return status;
+};
+
 module.exports = {
   CreateHashedPassword,
   DoesUserExists,
   RegisterUser,
   CheckPassword,
   RegisteredUser,
+  CheckAndCreateToken,
 };

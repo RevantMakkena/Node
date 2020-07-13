@@ -20,15 +20,29 @@ const CreateToken = async (email) => {
 };
 
 const CheckTokenExists = async (email, token) => {
-  const tokenInDb = await Token.findOne({email, token});
+  const tokenInDb = await Token.findOne({email: email});
+  let response = null;
 
   if (tokenInDb) {
     //Decode JWT
-    const isMatch = await jwt.verify(token, ACCESS_TOKEN_SECRET);
+    await jwt.verify(token, ACCESS_TOKEN_SECRET, function (
+      err,
+      decoded
+    ) {
+      if (decoded) response = decoded;
+    });
+  }
 
-    if (isMatch) return true;
-    else return null;
-  } else return null;
+  return response;
+};
+
+const CheckTokenInDb = async (email) => {
+  const tokenInDb = await Token.findOne({email: email});
+  let response = null;
+
+  if (tokenInDb) response = tokenInDb.token;
+
+  return response;
 };
 
 const DeleteToken = async (email) => {
@@ -50,4 +64,5 @@ module.exports = {
   CheckTokenExists,
   DeleteToken,
   CheckTokenExistsMiddleware,
+  CheckTokenInDb,
 };

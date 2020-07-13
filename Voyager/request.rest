@@ -29,10 +29,10 @@ email:rk2@gmail.com
 token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
 
 ###
-GET http://localhost:4444/api/emp/22
+GET http://localhost:4444/api/emp/6
 Content-Type: application/json
 email:rk2@gmail.com
-token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSu5XU
+token:eyJhbGciOiJIUzI1NiJ9.cmsyQGdtYWlsLmNvbQ.YScKtud97uHwfBtMfjrZZSC1G5pISDf3CrWQDPSuXU
 
 ###
 POST  http://localhost:4444/api/emp/add

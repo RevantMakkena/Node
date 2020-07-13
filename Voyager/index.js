@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+app.use(cors());
+app.options("*", cors());
 const mongoose = require("mongoose");
 const {HumansUri} = require("./config/keys");
 const port = process.env.npm_package_config_port || 4444;

@@ -126,10 +126,31 @@ const DeleteEmployee = async (id) => {
   } else return "Employee not found";
 };
 
+const GetAllEmployees = async () => {
+  const employees = await Employees.find({}, function (err, emps) {
+    var _emps = {};
+
+    emps.forEach(
+      (e) =>
+        (_emps[e.id] = {
+          id: e.id,
+          FirstName: e.FirstName,
+          LastName: e.LastName,
+          City: e.City,
+          State: e.State,
+        })
+    );
+    return _emps;
+  });
+
+  return employees;
+};
+
 module.exports = {
   GetEmployeesInRange,
   GetEmployee,
   AddEmployee,
   UpdateEmployee,
   DeleteEmployee,
+  GetAllEmployees,
 };

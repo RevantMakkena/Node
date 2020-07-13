@@ -31,29 +31,6 @@ const employeeSchema = new mongoose.Schema({
   State: {
     type: String,
   },
-  Company: {
-    type: String,
-  },
-  Movies: [
-    {
-      type: String,
-    },
-  ],
-  Vehicles: [
-    {
-      Make: String,
-      Model: String,
-      Year: Number,
-      Vin: String,
-    },
-  ],
-  Credit: [
-    {
-      CreditCardNumber: String,
-      CardType: String,
-      CurrencyType: String,
-    },
-  ],
 });
 
 const Employees = mongoose.model("Employees", employeeSchema);
