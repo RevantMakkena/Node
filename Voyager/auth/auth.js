@@ -46,20 +46,20 @@ const CheckAndCreateToken = async (email, password) => {
 
     if (passwordMatch) {
       status.passwordMatch = true;
-      
+
       const getToken = await CheckTokenInDb(email);
-      
+
       if (!getToken) {
         const token = await CreateToken(email);
         if (token) {
           status.response = {
-            user: {name: doesUserExists.name},
+            user: {name: doesUserExists.name, email: email},
             token: token,
           };
         }
       } else {
         status.response = {
-          user: {name: doesUserExists.name},
+          user: {name: doesUserExists.name, email: email},
           token: getToken,
         };
       }

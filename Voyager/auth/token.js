@@ -53,6 +53,7 @@ const DeleteToken = async (email) => {
 
 const CheckTokenExistsMiddleware = async (req, res, next) => {
   const {email, token} = req.headers;
+
   const valid = await CheckTokenExists(email, token);
 
   if (valid) next();
